@@ -13,6 +13,7 @@
 		44F789972A7DA00D00A170C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44F789952A7DA00D00A170C2 /* Main.storyboard */; };
 		44F789992A7DA00E00A170C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44F789982A7DA00E00A170C2 /* Assets.xcassets */; };
 		44F7899C2A7DA00E00A170C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44F7899A2A7DA00E00A170C2 /* LaunchScreen.storyboard */; };
+		44F789A52A7DA38600A170C2 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789A42A7DA38600A170C2 /* DateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		44F789982A7DA00E00A170C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44F7899B2A7DA00E00A170C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44F7899D2A7DA00E00A170C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44F789A42A7DA38600A170C2 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		44F7898E2A7DA00D00A170C2 /* ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				44F789A32A7DA37100A170C2 /* Extensions */,
 				44F7898F2A7DA00D00A170C2 /* AppDelegate.swift */,
 				44F789912A7DA00D00A170C2 /* SceneDelegate.swift */,
 				44F789932A7DA00D00A170C2 /* ToDoListViewController.swift */,
@@ -65,6 +68,14 @@
 				44F7899D2A7DA00E00A170C2 /* Info.plist */,
 			);
 			path = ToDoApp;
+			sourceTree = "<group>";
+		};
+		44F789A32A7DA37100A170C2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				44F789A42A7DA38600A170C2 /* DateFormatter.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44F789A52A7DA38600A170C2 /* DateFormatter.swift in Sources */,
 				44F789942A7DA00D00A170C2 /* ToDoListViewController.swift in Sources */,
 				44F789902A7DA00D00A170C2 /* AppDelegate.swift in Sources */,
 				44F789922A7DA00D00A170C2 /* SceneDelegate.swift in Sources */,
