@@ -222,18 +222,3 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
 
     
 }
-
-
-enum AppColorEnum {
-    case backgroundColor
-    case primaryColor
-
-    var color: UIColor {
-        switch self {
-        case .backgroundColor:
-            return UIColor(hex: 0xEEEEEE)
-        case .primaryColor:
-            return UIColor(hex: 0x58808F)
-        }
-    }
-}
