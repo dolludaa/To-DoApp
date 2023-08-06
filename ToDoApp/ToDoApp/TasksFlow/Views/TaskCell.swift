@@ -37,7 +37,7 @@ final class TaskCell: UITableViewCell {
         NSLayoutConstraint.activate([
             taskNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
             taskNameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            taskCompletedButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
+            taskCompletedButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             taskCompletedButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             taskCompletedButton.widthAnchor.constraint(equalToConstant: 50),
             taskCompletedButton.heightAnchor.constraint(equalToConstant: 50)

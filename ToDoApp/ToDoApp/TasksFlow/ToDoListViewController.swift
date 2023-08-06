@@ -48,12 +48,12 @@ class ToDoListViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             tableView.bottomAnchor.constraint(equalTo: addButton.topAnchor),
 
-            addButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            addButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             addButtonBottomConstraint,
             addButton.heightAnchor.constraint(equalToConstant: 50)
         ])
@@ -80,7 +80,7 @@ class ToDoListViewController: UIViewController {
         addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
         addButton.setTitle("Добавить навык", for: .normal)
         addButton.backgroundColor = AppColorEnum.primaryColor.color
-        addButton.layer.cornerRadius = 20
+        addButton.layer.cornerRadius = 10
     }
 
     private func setUpStack() {
@@ -153,17 +153,15 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 
         let verticalPadding: CGFloat = 8
-        let horizontalPadding: CGFloat = 16
 
         let maskLayer = CALayer()
         maskLayer.cornerRadius = 10
         maskLayer.backgroundColor = UIColor.black.cgColor
 
-        let xInset = horizontalPadding / 2
         let rect = CGRect(
-            x: cell.bounds.origin.x + xInset,
+            x: cell.bounds.origin.x ,
             y: cell.bounds.origin.y,
-            width: cell.bounds.width - horizontalPadding,
+            width: cell.bounds.width ,
             height: cell.bounds.height
         ).insetBy(dx: 0, dy: verticalPadding / 2)
 
@@ -202,6 +200,4 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         taskService.completeTask(at: indexPath.row)
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
-
-    
 }
