@@ -14,6 +14,10 @@
 		44F789992A7DA00E00A170C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44F789982A7DA00E00A170C2 /* Assets.xcassets */; };
 		44F7899C2A7DA00E00A170C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44F7899A2A7DA00E00A170C2 /* LaunchScreen.storyboard */; };
 		44F789A52A7DA38600A170C2 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789A42A7DA38600A170C2 /* DateFormatter.swift */; };
+		44F789A72A7DA58D00A170C2 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789A62A7DA58D00A170C2 /* TaskModel.swift */; };
+		44F789A92A7DA62700A170C2 /* TaskManagerService .swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789A82A7DA62700A170C2 /* TaskManagerService .swift */; };
+		44F789AB2A7DA8AD00A170C2 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789AA2A7DA8AC00A170C2 /* TaskCell.swift */; };
+		44F789AD2A7F1AAB00A170C2 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789AC2A7F1AAB00A170C2 /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		44F7899B2A7DA00E00A170C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44F7899D2A7DA00E00A170C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44F789A42A7DA38600A170C2 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		44F789A62A7DA58D00A170C2 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		44F789A82A7DA62700A170C2 /* TaskManagerService .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskManagerService .swift"; sourceTree = "<group>"; };
+		44F789AA2A7DA8AC00A170C2 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		44F789AC2A7F1AAB00A170C2 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +74,9 @@
 				44F789982A7DA00E00A170C2 /* Assets.xcassets */,
 				44F7899A2A7DA00E00A170C2 /* LaunchScreen.storyboard */,
 				44F7899D2A7DA00E00A170C2 /* Info.plist */,
+				44F789A62A7DA58D00A170C2 /* TaskModel.swift */,
+				44F789A82A7DA62700A170C2 /* TaskManagerService .swift */,
+				44F789AA2A7DA8AC00A170C2 /* TaskCell.swift */,
 			);
 			path = ToDoApp;
 			sourceTree = "<group>";
@@ -74,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				44F789A42A7DA38600A170C2 /* DateFormatter.swift */,
+				44F789AC2A7F1AAB00A170C2 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -150,7 +162,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				44F789A52A7DA38600A170C2 /* DateFormatter.swift in Sources */,
+				44F789AB2A7DA8AD00A170C2 /* TaskCell.swift in Sources */,
 				44F789942A7DA00D00A170C2 /* ToDoListViewController.swift in Sources */,
+				44F789A72A7DA58D00A170C2 /* TaskModel.swift in Sources */,
+				44F789A92A7DA62700A170C2 /* TaskManagerService .swift in Sources */,
+				44F789AD2A7F1AAB00A170C2 /* UIColor.swift in Sources */,
 				44F789902A7DA00D00A170C2 /* AppDelegate.swift in Sources */,
 				44F789922A7DA00D00A170C2 /* SceneDelegate.swift in Sources */,
 			);
