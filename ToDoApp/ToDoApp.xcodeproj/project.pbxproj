@@ -20,6 +20,7 @@
 		44F789AD2A7F1AAB00A170C2 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789AC2A7F1AAB00A170C2 /* UIColor.swift */; };
 		44F789B02A7F1D0700A170C2 /* AppColorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789AF2A7F1D0700A170C2 /* AppColorEnum.swift */; };
 		44F789B62A7F1F5D00A170C2 /* TaskServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789B52A7F1F5D00A170C2 /* TaskServiceProtocol.swift */; };
+		44F789BA2A7F22E900A170C2 /* SystemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789B92A7F22E900A170C2 /* SystemImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		44F789AC2A7F1AAB00A170C2 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		44F789AF2A7F1D0700A170C2 /* AppColorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorEnum.swift; sourceTree = "<group>"; };
 		44F789B52A7F1F5D00A170C2 /* TaskServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskServiceProtocol.swift; sourceTree = "<group>"; };
+		44F789B92A7F22E900A170C2 /* SystemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				44F789A62A7DA58D00A170C2 /* TaskModel.swift */,
 				44F789AF2A7F1D0700A170C2 /* AppColorEnum.swift */,
+				44F789B92A7F22E900A170C2 /* SystemImage.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44F789A52A7DA38600A170C2 /* DateFormatter.swift in Sources */,
+				44F789BA2A7F22E900A170C2 /* SystemImage.swift in Sources */,
 				44F789B02A7F1D0700A170C2 /* AppColorEnum.swift in Sources */,
 				44F789AB2A7DA8AD00A170C2 /* TaskCell.swift in Sources */,
 				44F789942A7DA00D00A170C2 /* ToDoListViewController.swift in Sources */,
