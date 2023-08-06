@@ -70,6 +70,7 @@
 		44F7898E2A7DA00D00A170C2 /* ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				44F789B72A7F1F9500A170C2 /* TasksFlow */,
 				44F789B12A7F1D6700A170C2 /* ServiceLayer */,
 				44F789AE2A7F1CF600A170C2 /* Entities */,
 				44F789A32A7DA37100A170C2 /* Extensions */,
@@ -80,7 +81,6 @@
 				44F789982A7DA00E00A170C2 /* Assets.xcassets */,
 				44F7899A2A7DA00E00A170C2 /* LaunchScreen.storyboard */,
 				44F7899D2A7DA00E00A170C2 /* Info.plist */,
-				44F789AA2A7DA8AC00A170C2 /* TaskCell.swift */,
 			);
 			path = ToDoApp;
 			sourceTree = "<group>";
@@ -118,6 +118,22 @@
 				44F789B52A7F1F5D00A170C2 /* TaskServiceProtocol.swift */,
 			);
 			path = Contracts;
+			sourceTree = "<group>";
+		};
+		44F789B72A7F1F9500A170C2 /* TasksFlow */ = {
+			isa = PBXGroup;
+			children = (
+				44F789B82A7F1F9E00A170C2 /* Views */,
+			);
+			path = TasksFlow;
+			sourceTree = "<group>";
+		};
+		44F789B82A7F1F9E00A170C2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				44F789AA2A7DA8AC00A170C2 /* TaskCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
