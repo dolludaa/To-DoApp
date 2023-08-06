@@ -19,6 +19,7 @@
 		44F789AB2A7DA8AD00A170C2 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789AA2A7DA8AC00A170C2 /* TaskCell.swift */; };
 		44F789AD2A7F1AAB00A170C2 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789AC2A7F1AAB00A170C2 /* UIColor.swift */; };
 		44F789B02A7F1D0700A170C2 /* AppColorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789AF2A7F1D0700A170C2 /* AppColorEnum.swift */; };
+		44F789B62A7F1F5D00A170C2 /* TaskServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789B52A7F1F5D00A170C2 /* TaskServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		44F789AA2A7DA8AC00A170C2 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		44F789AC2A7F1AAB00A170C2 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		44F789AF2A7F1D0700A170C2 /* AppColorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorEnum.swift; sourceTree = "<group>"; };
+		44F789B52A7F1F5D00A170C2 /* TaskServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskServiceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		44F7898E2A7DA00D00A170C2 /* ToDoApp */ = {
 			isa = PBXGroup;
 			children = (
+				44F789B12A7F1D6700A170C2 /* ServiceLayer */,
 				44F789AE2A7F1CF600A170C2 /* Entities */,
 				44F789A32A7DA37100A170C2 /* Extensions */,
 				44F7898F2A7DA00D00A170C2 /* AppDelegate.swift */,
@@ -77,8 +80,6 @@
 				44F789982A7DA00E00A170C2 /* Assets.xcassets */,
 				44F7899A2A7DA00E00A170C2 /* LaunchScreen.storyboard */,
 				44F7899D2A7DA00E00A170C2 /* Info.plist */,
-				44F789A62A7DA58D00A170C2 /* TaskModel.swift */,
-				44F789A82A7DA62700A170C2 /* TaskManagerService .swift */,
 				44F789AA2A7DA8AC00A170C2 /* TaskCell.swift */,
 			);
 			path = ToDoApp;
@@ -96,9 +97,27 @@
 		44F789AE2A7F1CF600A170C2 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				44F789A62A7DA58D00A170C2 /* TaskModel.swift */,
 				44F789AF2A7F1D0700A170C2 /* AppColorEnum.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		44F789B12A7F1D6700A170C2 /* ServiceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				44F789B42A7F1F5300A170C2 /* Contracts */,
+				44F789A82A7DA62700A170C2 /* TaskManagerService .swift */,
+			);
+			path = ServiceLayer;
+			sourceTree = "<group>";
+		};
+		44F789B42A7F1F5300A170C2 /* Contracts */ = {
+			isa = PBXGroup;
+			children = (
+				44F789B52A7F1F5D00A170C2 /* TaskServiceProtocol.swift */,
+			);
+			path = Contracts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +197,7 @@
 				44F789942A7DA00D00A170C2 /* ToDoListViewController.swift in Sources */,
 				44F789A72A7DA58D00A170C2 /* TaskModel.swift in Sources */,
 				44F789A92A7DA62700A170C2 /* TaskManagerService .swift in Sources */,
+				44F789B62A7F1F5D00A170C2 /* TaskServiceProtocol.swift in Sources */,
 				44F789AD2A7F1AAB00A170C2 /* UIColor.swift in Sources */,
 				44F789902A7DA00D00A170C2 /* AppDelegate.swift in Sources */,
 				44F789922A7DA00D00A170C2 /* SceneDelegate.swift in Sources */,

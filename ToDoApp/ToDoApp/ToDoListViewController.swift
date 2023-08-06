@@ -118,13 +118,9 @@ class ToDoListViewController: UIViewController {
               !name.isEmpty
         else { return }
 
-        do {
-            let path = IndexPath(row: taskService.tasks.count, section: 0)
-            try taskService.addTask(name: name)
-            tableView.insertRows(at: [path], with: .middle)
-        } catch {
-            print(error)
-        }
+        let path = IndexPath(row: taskService.tasks.count, section: 0)
+        taskService.addTask(name: name)
+        tableView.insertRows(at: [path], with: .middle)
     }
 
     @objc private func addButtonTapped() {
@@ -185,13 +181,9 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
 
         var task = taskService.tasks[indexPath.row]
         cell.configure(with: task)
-        cell.onCompletedButtonTapped = { isCompleted in
+        cell.onCompletedButtonTapped = { [weak self] isCompleted in
             task.isCompleted = isCompleted
-            do {
-                try self.taskService.updateTask(at: indexPath.row, with: task)
-            } catch {
-                print(error)
-            }
+            self?.taskService.updateTask(at: indexPath.row, with: task)
         }
 
         return cell
@@ -201,23 +193,14 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         guard editingStyle == .delete
         else { return }
 
-        do {
-            try taskService.deleteTask(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-        } catch {
-            print(error)
-        }
-
+        taskService.deleteTask(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
         tableView.reloadData()
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        do {
-            try taskService.completeTask(at: indexPath.row)
-            tableView.reloadRows(at: [indexPath], with: .automatic)
-        } catch {
-            print(error)
-        }
+        taskService.completeTask(at: indexPath.row)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 
     
