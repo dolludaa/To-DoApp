@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TaskService: TaskServiceProtocol {
+final class TaskService: TaskServiceProtocol {
 
     // MARK: - Properties
 

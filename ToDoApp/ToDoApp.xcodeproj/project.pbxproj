@@ -20,6 +20,9 @@
 		44F789B02A7F1D0700A170C2 /* AppColorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789AF2A7F1D0700A170C2 /* AppColorEnum.swift */; };
 		44F789B62A7F1F5D00A170C2 /* TaskServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789B52A7F1F5D00A170C2 /* TaskServiceProtocol.swift */; };
 		44F789BA2A7F22E900A170C2 /* SystemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789B92A7F22E900A170C2 /* SystemImage.swift */; };
+		44F789BC2A7F265A00A170C2 /* ToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789BB2A7F265A00A170C2 /* ToDoView.swift */; };
+		44F789BE2A7F35AF00A170C2 /* ToDoListViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789BD2A7F35AF00A170C2 /* ToDoListViewControllerAssembly.swift */; };
+		44F789C12A7F35C600A170C2 /* ToDoListViewControllerDeleagte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789C02A7F35C600A170C2 /* ToDoListViewControllerDeleagte.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		44F789AF2A7F1D0700A170C2 /* AppColorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorEnum.swift; sourceTree = "<group>"; };
 		44F789B52A7F1F5D00A170C2 /* TaskServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskServiceProtocol.swift; sourceTree = "<group>"; };
 		44F789B92A7F22E900A170C2 /* SystemImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemImage.swift; sourceTree = "<group>"; };
+		44F789BB2A7F265A00A170C2 /* ToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoView.swift; sourceTree = "<group>"; };
+		44F789BD2A7F35AF00A170C2 /* ToDoListViewControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewControllerAssembly.swift; sourceTree = "<group>"; };
+		44F789C02A7F35C600A170C2 /* ToDoListViewControllerDeleagte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewControllerDeleagte.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,8 +128,11 @@
 		44F789B72A7F1F9500A170C2 /* TasksFlow */ = {
 			isa = PBXGroup;
 			children = (
+				44F789BF2A7F35BE00A170C2 /* Contracts */,
 				44F789B82A7F1F9E00A170C2 /* Views */,
 				44F789932A7DA00D00A170C2 /* ToDoListViewController.swift */,
+				44F789BB2A7F265A00A170C2 /* ToDoView.swift */,
+				44F789BD2A7F35AF00A170C2 /* ToDoListViewControllerAssembly.swift */,
 			);
 			path = TasksFlow;
 			sourceTree = "<group>";
@@ -134,6 +143,14 @@
 				44F789AA2A7DA8AC00A170C2 /* TaskCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		44F789BF2A7F35BE00A170C2 /* Contracts */ = {
+			isa = PBXGroup;
+			children = (
+				44F789C02A7F35C600A170C2 /* ToDoListViewControllerDeleagte.swift */,
+			);
+			path = Contracts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,13 +226,16 @@
 				44F789A52A7DA38600A170C2 /* DateFormatter.swift in Sources */,
 				44F789BA2A7F22E900A170C2 /* SystemImage.swift in Sources */,
 				44F789B02A7F1D0700A170C2 /* AppColorEnum.swift in Sources */,
+				44F789BE2A7F35AF00A170C2 /* ToDoListViewControllerAssembly.swift in Sources */,
 				44F789AB2A7DA8AD00A170C2 /* TaskCell.swift in Sources */,
 				44F789942A7DA00D00A170C2 /* ToDoListViewController.swift in Sources */,
 				44F789A72A7DA58D00A170C2 /* TaskModel.swift in Sources */,
 				44F789A92A7DA62700A170C2 /* TaskManagerService .swift in Sources */,
 				44F789B62A7F1F5D00A170C2 /* TaskServiceProtocol.swift in Sources */,
+				44F789C12A7F35C600A170C2 /* ToDoListViewControllerDeleagte.swift in Sources */,
 				44F789AD2A7F1AAB00A170C2 /* UIColor.swift in Sources */,
 				44F789902A7DA00D00A170C2 /* AppDelegate.swift in Sources */,
+				44F789BC2A7F265A00A170C2 /* ToDoView.swift in Sources */,
 				44F789922A7DA00D00A170C2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

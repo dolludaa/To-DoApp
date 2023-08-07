@@ -7,24 +7,28 @@
 
 import UIKit
 
-class ToDoListViewController: UIViewController {
+final class ToDoListViewController: UIViewController {
 
-    private let titleLabel = UILabel()
-    private let dateLabel = UILabel()
-    private let stackView = UIStackView()
-    private let tableView = UITableView()
-    private let addButton = UIButton()
+    private let taskService: TaskServiceProtocol
+    private let toDoView: ToDoViewProtocol
 
-    private let taskService = TaskService()
+    init(taskService: TaskServiceProtocol, toDoView: ToDoViewProtocol) {
+        self.taskService = taskService
+        self.toDoView = toDoView
+        super.init(nibName: nil, bundle: nil)
+    }
 
-    private var addButtonBottomConstraint: NSLayoutConstraint!
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    override func loadView() {
+        view = toDoView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpLayout()
-        setUpStyle()
-        setUpStack()
         loadData()
+        toDoView.didLoad()
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -35,66 +39,9 @@ class ToDoListViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
-
-    private func setUpLayout() {
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        addButton.translatesAutoresizingMaskIntoConstraints = false
-
-        view.addSubview(tableView)
-        view.addSubview(addButton)
-
-        addButtonBottomConstraint = addButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            tableView.bottomAnchor.constraint(equalTo: addButton.topAnchor),
-
-            addButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            addButtonBottomConstraint,
-            addButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
-    }
-
-    private func setUpStyle() {
-
-        view.backgroundColor = AppColorEnum.backgroundColor.color
-
-        titleLabel.text = "Today's Task"
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        titleLabel.textAlignment = .center
-
-        dateLabel.text = DateFormatter.defaultDateFormatter.string(from: Date())
-        dateLabel.font = UIFont.systemFont(ofSize: 14)
-        dateLabel.textAlignment = .center
-
-        tableView.rowHeight = 50
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(TaskCell.self, forCellReuseIdentifier: TaskCell.reuseIdentifier)
-        tableView.backgroundColor = AppColorEnum.backgroundColor.color
-
-        addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
-        addButton.setTitle("Добавить навык", for: .normal)
-        addButton.backgroundColor = AppColorEnum.primaryColor.color
-        addButton.layer.cornerRadius = 10
-    }
-
-    private func setUpStack() {
-        stackView.addArrangedSubview(titleLabel)
-        stackView.addArrangedSubview(dateLabel)
-        stackView.axis = .vertical
-        stackView.spacing = 5
-
-        navigationItem.titleView = stackView
-    }
-
     private func loadData() {
         taskService.loadTasks()
-        tableView.reloadData()
+        toDoView.reloadTable()
     }
 
     private func showAddTaskAlert() {
@@ -120,27 +67,15 @@ class ToDoListViewController: UIViewController {
 
         let path = IndexPath(row: taskService.tasks.count, section: 0)
         taskService.addTask(name: name)
-        tableView.insertRows(at: [path], with: .middle)
-    }
-
-    @objc private func addButtonTapped() {
-        showAddTaskAlert()
+        toDoView.insertRows(path: path, animation: .middle)
     }
 
     @objc private func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            addButtonBottomConstraint.constant = -keyboardSize.height
-            UIView.animate(withDuration: 0.5) {
-                self.view.layoutIfNeeded()
-            }
-        }
+        toDoView.keyboardWillShow(notification: notification)
     }
 
     @objc private func keyboardWillHide(notification: NSNotification) {
-        addButtonBottomConstraint.constant = 0
-        UIView.animate(withDuration: 0.5) {
-            self.view.layoutIfNeeded()
-        }
+        toDoView.keyboardWillHide(notification: notification)
     }
 
 }
@@ -177,6 +112,8 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
             for: indexPath
         ) as? TaskCell else { return UITableViewCell() }
 
+        cell.resetConfiguration()
+
         var task = taskService.tasks[indexPath.row]
         cell.configure(with: task)
         cell.onCompletedButtonTapped = { [weak self] isCompleted in
@@ -199,5 +136,20 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         taskService.completeTask(at: indexPath.row)
         tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
+}
+
+extension ToDoListViewController: ToDoListViewControllerDeleagte {
+    var titleView: UIView? {
+        get {
+            navigationItem.titleView
+        }
+        set {
+            navigationItem.titleView = newValue
+        }
+    }
+
+    func addButtonDidTap() {
+        showAddTaskAlert()
     }
 }

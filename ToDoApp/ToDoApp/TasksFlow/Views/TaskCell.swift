@@ -58,6 +58,11 @@ final class TaskCell: UITableViewCell {
         updateTaskLabel(for: task.isCompleted)
     }
 
+    public func resetConfiguration() {
+      taskNameLabel.attributedText = nil
+      taskCompletedButton.isSelected = false
+    }
+
     @objc private func completedTapped() {
         taskCompletedButton.isSelected.toggle()
         let isCompleted = taskCompletedButton.isSelected

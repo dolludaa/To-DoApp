@@ -8,6 +8,7 @@
 import Foundation
 
 protocol TaskServiceProtocol {
+    var tasks: [TaskModel] { get }
     func updateTask(at index: Int, with task: TaskModel)
     func loadTasks()
     func addTask(name: String)
