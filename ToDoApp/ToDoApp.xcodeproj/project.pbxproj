@@ -23,6 +23,7 @@
 		44F789BC2A7F265A00A170C2 /* ToDoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789BB2A7F265A00A170C2 /* ToDoView.swift */; };
 		44F789BE2A7F35AF00A170C2 /* ToDoListViewControllerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789BD2A7F35AF00A170C2 /* ToDoListViewControllerAssembly.swift */; };
 		44F789C12A7F35C600A170C2 /* ToDoListViewControllerDeleagte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789C02A7F35C600A170C2 /* ToDoListViewControllerDeleagte.swift */; };
+		44F789C32A81AFAB00A170C2 /* ToDoViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F789C22A81AFAB00A170C2 /* ToDoViewProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		44F789BB2A7F265A00A170C2 /* ToDoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoView.swift; sourceTree = "<group>"; };
 		44F789BD2A7F35AF00A170C2 /* ToDoListViewControllerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewControllerAssembly.swift; sourceTree = "<group>"; };
 		44F789C02A7F35C600A170C2 /* ToDoListViewControllerDeleagte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewControllerDeleagte.swift; sourceTree = "<group>"; };
+		44F789C22A81AFAB00A170C2 /* ToDoViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				44F789C02A7F35C600A170C2 /* ToDoListViewControllerDeleagte.swift */,
+				44F789C22A81AFAB00A170C2 /* ToDoViewProtocol.swift */,
 			);
 			path = Contracts;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				44F789B62A7F1F5D00A170C2 /* TaskServiceProtocol.swift in Sources */,
 				44F789C12A7F35C600A170C2 /* ToDoListViewControllerDeleagte.swift in Sources */,
 				44F789AD2A7F1AAB00A170C2 /* UIColor.swift in Sources */,
+				44F789C32A81AFAB00A170C2 /* ToDoViewProtocol.swift in Sources */,
 				44F789902A7DA00D00A170C2 /* AppDelegate.swift in Sources */,
 				44F789BC2A7F265A00A170C2 /* ToDoView.swift in Sources */,
 				44F789922A7DA00D00A170C2 /* SceneDelegate.swift in Sources */,

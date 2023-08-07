@@ -8,14 +8,6 @@
 import Foundation
 import UIKit
 
-protocol ToDoViewProtocol: UIView {
-    func reloadTable()
-    func insertRows(path: IndexPath, animation: UITableView.RowAnimation)
-    func keyboardWillHide(notification: NSNotification)
-    func keyboardWillShow(notification: NSNotification)
-    func didLoad()
-}
-
 final class ToDoView: UIView {
 
     weak var delegate: ToDoListViewControllerDeleagte?

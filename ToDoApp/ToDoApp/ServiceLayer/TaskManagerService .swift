@@ -9,8 +9,6 @@ import Foundation
 
 final class TaskService: TaskServiceProtocol {
 
-    // MARK: - Properties
-
     private let userDefaults = UserDefaults.standard
 
     private let tasksKey = "tasks"
@@ -22,8 +20,6 @@ final class TaskService: TaskServiceProtocol {
     ]
 
     private(set) var tasks: [TaskModel] = []
-
-    // MARK: - Public
 
     func updateTask(at index: Int, with task: TaskModel) {
         guard tasks.indices.contains(index)
@@ -57,8 +53,6 @@ final class TaskService: TaskServiceProtocol {
         tasks.remove(at: index)
         saveTasks()
     }
-
-    // MARK: - Private
 
     private func fetchTasks() -> [TaskModel] {
         guard let data = userDefaults.data(forKey: tasksKey),
