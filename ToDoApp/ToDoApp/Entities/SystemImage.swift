@@ -6,8 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 enum SystemImage: String {
     case circle = "circle"
     case checkmarkCircleFill = "checkmark.circle.fill"
+
+    var image: UIImage? {
+        UIImage(systemName: rawValue)
+    }
 }

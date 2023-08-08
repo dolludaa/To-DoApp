@@ -21,14 +21,6 @@ final class TaskService: TaskServiceProtocol {
 
     private(set) var tasks: [TaskModel] = []
 
-    func updateTask(at index: Int, with task: TaskModel) {
-        guard tasks.indices.contains(index)
-        else { return }
-
-        tasks[index] = task
-        saveTasks()
-    }
-
     func loadTasks() {
         tasks = fetchTasks()
     }
@@ -39,7 +31,7 @@ final class TaskService: TaskServiceProtocol {
         saveTasks()
     }
 
-    func completeTask(at index: Int) {
+    func toggleTaskCompletion(at index: Int) {
         guard tasks.indices.contains(index)
         else { return }
         tasks[index].isCompleted.toggle()

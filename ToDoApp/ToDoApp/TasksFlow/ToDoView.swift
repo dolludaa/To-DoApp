@@ -18,7 +18,7 @@ final class ToDoView: UIView {
     private let tableView = UITableView()
     private let addButton = UIButton()
 
-    private var addButtonBottomConstraint: NSLayoutConstraint!
+    private var addButtonBottomConstraint: NSLayoutConstraint?
 
     private func setUpLayout() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -29,6 +29,7 @@ final class ToDoView: UIView {
         addSubview(addButton)
 
         addButtonBottomConstraint = addButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        addButtonBottomConstraint?.isActive = true
 
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -38,7 +39,6 @@ final class ToDoView: UIView {
 
             addButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             addButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            addButtonBottomConstraint,
             addButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
@@ -62,7 +62,7 @@ final class ToDoView: UIView {
         tableView.backgroundColor = AppColorEnum.backgroundColor.color
 
         addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
-        addButton.setTitle("Добавить навык", for: .normal)
+        addButton.setTitle("Добавить задачу", for: .normal)
         addButton.backgroundColor = AppColorEnum.primaryColor.color
         addButton.layer.cornerRadius = 10
     }
@@ -88,9 +88,8 @@ extension ToDoView: ToDoViewProtocol {
         setUpLayout()
     }
 
-
     func keyboardWillHide(notification: NSNotification) {
-        addButtonBottomConstraint.constant = 0
+        addButtonBottomConstraint?.constant = 0
         UIView.animate(withDuration: 0.5) {
             self.layoutIfNeeded()
         }
@@ -98,7 +97,7 @@ extension ToDoView: ToDoViewProtocol {
 
     func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            addButtonBottomConstraint.constant = -keyboardSize.height
+            addButtonBottomConstraint?.constant = -keyboardSize.height
             UIView.animate(withDuration: 0.5) {
                 self.layoutIfNeeded()
             }

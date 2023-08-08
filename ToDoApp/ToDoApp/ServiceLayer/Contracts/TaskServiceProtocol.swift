@@ -9,9 +9,9 @@ import Foundation
 
 protocol TaskServiceProtocol {
     var tasks: [TaskModel] { get }
-    func updateTask(at index: Int, with task: TaskModel)
+//    func updateTask(at index: Int, with task: TaskModel)
     func loadTasks()
     func addTask(name: String)
-    func completeTask(at index: Int)
+    func toggleTaskCompletion(at index: Int)
     func deleteTask(at index: Int)
 }

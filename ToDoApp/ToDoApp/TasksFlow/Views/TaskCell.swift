@@ -12,7 +12,7 @@ final class TaskCell: UITableViewCell {
 
     static let reuseIdentifier = String(describing: TaskCell.self)
 
-    var onCompletedButtonTapped: ((Bool) -> Void)?
+    var onCompletedButtonTapped = { }
 
     private let taskNameLabel = UILabel()
     private let taskCompletedButton = UIButton(type: .custom)
@@ -25,6 +25,11 @@ final class TaskCell: UITableViewCell {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        resetConfiguration()
     }
 
     private func setupLayout() {
@@ -46,32 +51,33 @@ final class TaskCell: UITableViewCell {
 
     private func setupStyle() {
         taskNameLabel.font = UIFont.systemFont(ofSize: 16)
-        taskCompletedButton.setImage(UIImage(systemName: SystemImage.circle.rawValue), for: .normal)
-        taskCompletedButton.setImage(UIImage(systemName: SystemImage.checkmarkCircleFill.rawValue), for: .selected)
+
+        taskCompletedButton.setImage(SystemImage.circle.image, for: .normal)
+        taskCompletedButton.setImage(SystemImage.checkmarkCircleFill.image, for: .selected)
         taskCompletedButton.addTarget(self, action: #selector(completedTapped), for: .touchUpInside)
         taskCompletedButton.tintColor = AppColorEnum.primaryColor.color
     }
 
-    func configure(with task: TaskModel) {
-        taskNameLabel.text = task.name
-        taskCompletedButton.isSelected = task.isCompleted
-        updateTaskLabel(for: task.isCompleted)
-    }
-
-    public func resetConfiguration() {
+    private func resetConfiguration() {
       taskNameLabel.attributedText = nil
       taskCompletedButton.isSelected = false
     }
 
     @objc private func completedTapped() {
-        taskCompletedButton.isSelected.toggle()
-        let isCompleted = taskCompletedButton.isSelected
-        updateTaskLabel(for: isCompleted)
-        onCompletedButtonTapped?(isCompleted)
+        onCompletedButtonTapped()
     }
 
-    private func updateTaskLabel(for isCompleted: Bool) {
-        let attributes: [NSAttributedString.Key: Any] = isCompleted ? [.strikethroughStyle: NSUnderlineStyle.single.rawValue] : [:]
-        taskNameLabel.attributedText = NSAttributedString(string: taskNameLabel.text ?? "", attributes: attributes)
+    private func updateTaskLabel(model: TaskModel) {
+        var attributedString = AttributedString(model.name)
+        attributedString.strikethroughStyle = model.isCompleted
+        ? .single
+        : Optional.none
+
+        taskNameLabel.attributedText = .init(attributedString)
+    }
+
+    func configure(with task: TaskModel) {
+        taskCompletedButton.isSelected = task.isCompleted
+        updateTaskLabel(model: task)
     }
 }

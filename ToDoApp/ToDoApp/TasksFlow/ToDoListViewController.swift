@@ -21,22 +21,21 @@ final class ToDoListViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     override func loadView() {
         view = toDoView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUp()
         loadData()
         toDoView.didLoad()
-
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
-    deinit {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    private func setUp() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     private func loadData() {
@@ -94,7 +93,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
         maskLayer.backgroundColor = UIColor.black.cgColor
 
         let rect = CGRect(
-            x: cell.bounds.origin.x ,
+            x: cell.bounds.origin.x,
             y: cell.bounds.origin.y,
             width: cell.bounds.width ,
             height: cell.bounds.height
@@ -112,13 +111,10 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
             for: indexPath
         ) as? TaskCell else { return UITableViewCell() }
 
-        cell.resetConfiguration()
-
-        var task = taskService.tasks[indexPath.row]
+        let task = taskService.tasks[indexPath.row]
         cell.configure(with: task)
-        cell.onCompletedButtonTapped = { [weak self] isCompleted in
-            task.isCompleted = isCompleted
-            self?.taskService.updateTask(at: indexPath.row, with: task)
+        cell.onCompletedButtonTapped = { [weak self, weak tableView] in
+            self?.toogleItem(at: indexPath, tableView: tableView)
         }
 
         return cell
@@ -134,8 +130,12 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        taskService.completeTask(at: indexPath.row)
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        toogleItem(at: indexPath, tableView: tableView)
+    }
+
+    private func toogleItem(at indexPath: IndexPath, tableView: UITableView?) {
+        taskService.toggleTaskCompletion(at: indexPath.row)
+        tableView?.reloadRows(at: [indexPath], with: .automatic)
     }
 }
 
